@@ -1,0 +1,918 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <Body>
+    <ReportItems>
+      <Textbox Name="Textbox1">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Račun br.</Value>
+                <Style>
+                  <FontSize>25pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox1</rd:DefaultName>
+        <Top>1.2827cm</Top>
+        <Left>7.8522cm</Left>
+        <Height>1.06567cm</Height>
+        <Width>4.00283cm</Width>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Id">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!Id.Value, "DsRacuni")</Value>
+                <Style>
+                  <FontSize>25pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Id</rd:DefaultName>
+        <Top>1.2827cm</Top>
+        <Left>12.07614cm</Left>
+        <Height>1.06567cm</Height>
+        <Width>3.17889cm</Width>
+        <ZIndex>1</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <VerticalAlign>Middle</VerticalAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Datum">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=DateValue(First(Fields!Datum.Value, "DsRacuni"))</Value>
+                <Style>
+                  <FontSize>12pt</FontSize>
+                  <Format>dd/MM/yyyy</Format>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Datum</rd:DefaultName>
+        <Top>4.03436cm</Top>
+        <Left>2.85843cm</Left>
+        <Height>0.87517cm</Height>
+        <Width>2.5cm</Width>
+        <ZIndex>2</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <VerticalAlign>Middle</VerticalAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox2">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Datum:</Value>
+                <Style>
+                  <FontSize>14pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox2</rd:DefaultName>
+        <Top>4.03436cm</Top>
+        <Left>0.69003cm</Left>
+        <Height>0.87517cm</Height>
+        <Width>1.992cm</Width>
+        <ZIndex>3</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <VerticalAlign>Middle</VerticalAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox3">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Izdao:</Value>
+                <Style>
+                  <FontSize>14pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox3</rd:DefaultName>
+        <Top>5.08592cm</Top>
+        <Left>0.69003cm</Left>
+        <Height>0.83961cm</Height>
+        <Width>1.992cm</Width>
+        <ZIndex>4</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <VerticalAlign>Middle</VerticalAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Ime">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!Ime.Value + " " + Fields!Prezime.Value, "DsZaposlenici")</Value>
+                <Style>
+                  <FontSize>12pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Ime</rd:DefaultName>
+        <Top>5.08592cm</Top>
+        <Left>2.85843cm</Left>
+        <Height>0.83961cm</Height>
+        <Width>2.5cm</Width>
+        <ZIndex>5</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <VerticalAlign>Middle</VerticalAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox4">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Pacijent:</Value>
+                <Style>
+                  <FontSize>14pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox4</rd:DefaultName>
+        <Top>6.10192cm</Top>
+        <Left>0.69003cm</Left>
+        <Height>0.76933cm</Height>
+        <Width>2.28834cm</Width>
+        <ZIndex>6</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <VerticalAlign>Middle</VerticalAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Ime1">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!Ime.Value + " " + Fields!Prezime.Value, "DsPacijenti")</Value>
+                <Style>
+                  <FontSize>12pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Ime1</rd:DefaultName>
+        <Top>6.10192cm</Top>
+        <Left>3.15476cm</Left>
+        <Height>0.76933cm</Height>
+        <Width>2.5cm</Width>
+        <ZIndex>7</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <VerticalAlign>Middle</VerticalAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Tablix Name="Tablix1">
+        <TablixBody>
+          <TablixColumns>
+            <TablixColumn>
+              <Width>6.52717cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>6.52717cm</Width>
+            </TablixColumn>
+          </TablixColumns>
+          <TablixRows>
+            <TablixRow>
+              <Height>1.15033cm</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox7">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Naziv</Value>
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox7</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox9">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Cijena</Value>
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox9</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>1.15033cm</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Naziv">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!Naziv.Value</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Naziv</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Cijena">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!Cijena.Value</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Cijena</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+          </TablixRows>
+        </TablixBody>
+        <TablixColumnHierarchy>
+          <TablixMembers>
+            <TablixMember />
+            <TablixMember />
+          </TablixMembers>
+        </TablixColumnHierarchy>
+        <TablixRowHierarchy>
+          <TablixMembers>
+            <TablixMember>
+              <KeepWithGroup>After</KeepWithGroup>
+            </TablixMember>
+            <TablixMember>
+              <Group Name="Details" />
+            </TablixMember>
+          </TablixMembers>
+        </TablixRowHierarchy>
+        <DataSetName>DsProizvodi</DataSetName>
+        <Top>9.96103cm</Top>
+        <Left>0.69003cm</Left>
+        <Height>2.30067cm</Height>
+        <Width>13.05433cm</Width>
+        <ZIndex>8</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Tablix>
+      <Textbox Name="Textbox24">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Ukupno:</Value>
+                <Style>
+                  <FontFamily>Calibri</FontFamily>
+                  <FontSize>14pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox24</rd:DefaultName>
+        <Top>12.94553cm</Top>
+        <Left>7.2862cm</Left>
+        <Height>0.87517cm</Height>
+        <Width>1.992cm</Width>
+        <ZIndex>9</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <VerticalAlign>Middle</VerticalAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Iznos">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!Iznos.Value, "DsRacuni")</Value>
+                <Style>
+                  <FontFamily>Calibri</FontFamily>
+                  <FontSize>12pt</FontSize>
+                  <Format>0.00 'HRK';(0.00 'HRK')</Format>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Right</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Iznos</rd:DefaultName>
+        <Top>12.94553cm</Top>
+        <Left>9.64509cm</Left>
+        <Height>0.87517cm</Height>
+        <Width>2.9445cm</Width>
+        <ZIndex>10</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <VerticalAlign>Middle</VerticalAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Image Name="Image4">
+        <Source>Embedded</Source>
+        <Value>MedCare_black1</Value>
+        <Top>0.9017cm</Top>
+        <Left>0.69003cm</Left>
+        <Height>1.79917cm</Height>
+        <Width>5.29167cm</Width>
+        <ZIndex>11</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Image>
+      <Textbox Name="Textbox27">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Potpis ovlaštene osobe:</Value>
+                <Style>
+                  <FontSize>12pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox27</rd:DefaultName>
+        <Top>19.1897cm</Top>
+        <Left>3.1587cm</Left>
+        <Height>0.6cm</Height>
+        <Width>4.97806cm</Width>
+        <ZIndex>12</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <VerticalAlign>Middle</VerticalAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox28">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value />
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox28</rd:DefaultName>
+        <Top>19.1897cm</Top>
+        <Left>8.31315cm</Left>
+        <Height>0.6cm</Height>
+        <Width>5.43122cm</Width>
+        <ZIndex>13</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <BottomBorder>
+            <Style>Solid</Style>
+          </BottomBorder>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+    </ReportItems>
+    <Height>11.7in</Height>
+    <Style>
+      <Border>
+        <Style>None</Style>
+      </Border>
+    </Style>
+  </Body>
+  <Width>8.3in</Width>
+  <Page>
+    <PageHeight>29.7cm</PageHeight>
+    <PageWidth>21cm</PageWidth>
+    <LeftMargin>2cm</LeftMargin>
+    <RightMargin>2cm</RightMargin>
+    <TopMargin>2cm</TopMargin>
+    <BottomMargin>2cm</BottomMargin>
+    <ColumnSpacing>0.13cm</ColumnSpacing>
+    <Style />
+  </Page>
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="MedCare">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>8ea4ad4a-1eea-4316-aaa0-81f6fbb7cfe6</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="DsRacuni">
+      <Query>
+        <DataSourceName>MedCare</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="Datum">
+          <DataField>Datum</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="Id">
+          <DataField>Id</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Iznos">
+          <DataField>Iznos</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="Pacijenti">
+          <DataField>Pacijenti</DataField>
+          <rd:TypeName>MedCare.Pacijenti</rd:TypeName>
+        </Field>
+        <Field Name="PacijentiId">
+          <DataField>PacijentiId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Zaposlenici">
+          <DataField>Zaposlenici</DataField>
+          <rd:TypeName>MedCare.Zaposlenici</rd:TypeName>
+        </Field>
+        <Field Name="ZaposleniciId">
+          <DataField>ZaposleniciId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>MedCare</rd:DataSetName>
+        <rd:TableName>Racuni</rd:TableName>
+        <rd:ObjectDataSourceType>MedCare.Racuni, MedCare, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
+      </rd:DataSetInfo>
+    </DataSet>
+    <DataSet Name="DsStavkeRacuna">
+      <Query>
+        <DataSourceName>MedCare</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="Id">
+          <DataField>Id</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Količina">
+          <DataField>Količina</DataField>
+          <rd:TypeName>System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
+        </Field>
+        <Field Name="Proizvodi">
+          <DataField>Proizvodi</DataField>
+          <rd:TypeName>MedCare.Proizvodi</rd:TypeName>
+        </Field>
+        <Field Name="ProizvodiId">
+          <DataField>ProizvodiId</DataField>
+          <rd:TypeName>System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
+        </Field>
+        <Field Name="Racuni">
+          <DataField>Racuni</DataField>
+          <rd:TypeName>MedCare.Racuni</rd:TypeName>
+        </Field>
+        <Field Name="RačuniId">
+          <DataField>RačuniId</DataField>
+          <rd:TypeName>System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>MedCare</rd:DataSetName>
+        <rd:TableName>StavkeRacuna</rd:TableName>
+        <rd:ObjectDataSourceType>MedCare.StavkeRacuna, MedCare, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
+      </rd:DataSetInfo>
+    </DataSet>
+    <DataSet Name="DsProizvodi">
+      <Query>
+        <DataSourceName>MedCare</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="Cijena">
+          <DataField>Cijena</DataField>
+          <rd:TypeName>System.Nullable`1[[System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
+        </Field>
+        <Field Name="Id">
+          <DataField>Id</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Naziv">
+          <DataField>Naziv</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TipProizvoda">
+          <DataField>TipProizvoda</DataField>
+          <rd:TypeName>MedCare.TipProizvoda</rd:TypeName>
+        </Field>
+        <Field Name="TipProizvodaId">
+          <DataField>TipProizvodaId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>MedCare</rd:DataSetName>
+        <rd:TableName>Proizvodi</rd:TableName>
+        <rd:ObjectDataSourceType>MedCare.Proizvodi, MedCare, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
+      </rd:DataSetInfo>
+    </DataSet>
+    <DataSet Name="DsPacijenti">
+      <Query>
+        <DataSourceName>MedCare</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="Adresa">
+          <DataField>Adresa</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DatumRođenja">
+          <DataField>DatumRođenja</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="Email">
+          <DataField>Email</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Id">
+          <DataField>Id</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Ime">
+          <DataField>Ime</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Kontakt">
+          <DataField>Kontakt</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Oib">
+          <DataField>Oib</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Prezime">
+          <DataField>Prezime</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Spol">
+          <DataField>Spol</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Zaposlenici">
+          <DataField>Zaposlenici</DataField>
+          <rd:TypeName>MedCare.Zaposlenici</rd:TypeName>
+        </Field>
+        <Field Name="ZaposleniciId">
+          <DataField>ZaposleniciId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ZaposleniciIdStomatolog">
+          <DataField>ZaposleniciIdStomatolog</DataField>
+          <rd:TypeName>System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>MedCare</rd:DataSetName>
+        <rd:TableName>Pacijenti</rd:TableName>
+        <rd:ObjectDataSourceType>MedCare.Pacijenti, MedCare, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
+      </rd:DataSetInfo>
+    </DataSet>
+    <DataSet Name="DsZaposlenici">
+      <Query>
+        <DataSourceName>MedCare</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="Adresa">
+          <DataField>Adresa</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DatumRođenja">
+          <DataField>DatumRođenja</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="Email">
+          <DataField>Email</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Id">
+          <DataField>Id</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Ime">
+          <DataField>Ime</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Kontakt">
+          <DataField>Kontakt</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="KorisnickoIme">
+          <DataField>KorisnickoIme</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Lozinka">
+          <DataField>Lozinka</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Oib">
+          <DataField>Oib</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Prezime">
+          <DataField>Prezime</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="RadnoMjesto">
+          <DataField>RadnoMjesto</DataField>
+          <rd:TypeName>MedCare.RadnoMjesto</rd:TypeName>
+        </Field>
+        <Field Name="RadnoMjestoId">
+          <DataField>RadnoMjestoId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Spol">
+          <DataField>Spol</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TipZaposlenika">
+          <DataField>TipZaposlenika</DataField>
+          <rd:TypeName>MedCare.TipZaposlenika</rd:TypeName>
+        </Field>
+        <Field Name="TipZaposlenikaId">
+          <DataField>TipZaposlenikaId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>MedCare</rd:DataSetName>
+        <rd:TableName>Zaposlenici</rd:TableName>
+        <rd:ObjectDataSourceType>MedCare.Zaposlenici, MedCare, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
+      </rd:DataSetInfo>
+    </DataSet>
+  </DataSets>
+  <EmbeddedImages>
+    <EmbeddedImage Name="MedCare_black1">
+      <MIMEType>image/png</MIMEType>
+      <ImageData>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</ImageData>
+    </EmbeddedImage>
+  </EmbeddedImages>
+  <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <rd:ReportID>1b5c1bb0-99ff-405b-b582-854ac2cfe4a4</rd:ReportID>
+</Report>

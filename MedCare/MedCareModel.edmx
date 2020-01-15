@@ -1,0 +1,1352 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Bolesti">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Naziv" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Dijagnoze">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PacijentiId" Type="int" Nullable="false" />
+          <Property Name="BolestiId" Type="int" Nullable="false" />
+          <Property Name="ZaposleniciId" Type="int" Nullable="false" />
+          <Property Name="Napomena" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Narudžbe">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Datum" Type="datetime" Nullable="false" />
+          <Property Name="ZaposleniciId" Type="int" Nullable="false" />
+          <Property Name="PacijentiId" Type="int" Nullable="false" />
+          <Property Name="Napomena" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="NarudžbenicaStavke">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NarudžbeniceId" Type="int" Nullable="false" />
+          <Property Name="ProizvodiId" Type="int" Nullable="false" />
+          <Property Name="Količina" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Narudžbenice">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Datum" Type="date" Nullable="false" />
+          <Property Name="PoslovniPartneriId" Type="int" Nullable="false" />
+          <Property Name="ZaposleniciId" Type="int" Nullable="false" />
+          <Property Name="Napomena" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Pacijenti">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Oib" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="Ime" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Prezime" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="DatumRođenja" Type="date" Nullable="false" />
+          <Property Name="Adresa" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Kontakt" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="40" />
+          <Property Name="Spol" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="ZaposleniciId" Type="int" Nullable="false" />
+          <Property Name="ZaposleniciIdStomatolog" Type="int" />
+        </EntityType>
+        <EntityType Name="PoslovniPartneri">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Oib" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="Naziv" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Adresa" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Kontakt" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Proizvodi">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Naziv" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TipProizvodaId" Type="int" Nullable="false" />
+          <Property Name="Cijena" Type="decimal" Precision="15" Scale="2" />
+        </EntityType>
+        <EntityType Name="Racuni">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Datum" Type="datetime" Nullable="false" />
+          <Property Name="PacijentiId" Type="int" Nullable="false" />
+          <Property Name="ZaposleniciId" Type="int" Nullable="false" />
+          <Property Name="Iznos" Type="decimal" Precision="15" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RadnoMjesto">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Naziv" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Recepti">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Šifra" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ZaposleniciId" Type="int" Nullable="false" />
+          <Property Name="PacijentiId" Type="int" Nullable="false" />
+          <Property Name="ProizvodiId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StavkeRacuna">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RačuniId" Type="int" />
+          <Property Name="ProizvodiId" Type="int" />
+          <Property Name="Količina" Type="int" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Terapije">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProizvodiId" Type="int" Nullable="false" />
+          <Property Name="DijagnozeId" Type="int" Nullable="false" />
+          <Property Name="Preporuka" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TipProizvoda">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Naziv" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TipZaposlenika">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Naziv" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Zaposlenici">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Oib" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="Ime" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Prezime" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="DatumRođenja" Type="date" Nullable="false" />
+          <Property Name="Adresa" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Kontakt" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="40" />
+          <Property Name="Spol" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="KorisnickoIme" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Lozinka" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="TipZaposlenikaId" Type="int" Nullable="false" />
+          <Property Name="RadnoMjestoId" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Dijagnoze__Boles__00200768">
+          <End Role="Bolesti" Type="Self.Bolesti" Multiplicity="1" />
+          <End Role="Dijagnoze" Type="Self.Dijagnoze" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bolesti">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Dijagnoze">
+              <PropertyRef Name="BolestiId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Dijagnoze__Pacij__7F2BE32F">
+          <End Role="Pacijenti" Type="Self.Pacijenti" Multiplicity="1" />
+          <End Role="Dijagnoze" Type="Self.Dijagnoze" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pacijenti">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Dijagnoze">
+              <PropertyRef Name="PacijentiId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Dijagnoze__Zapos__01142BA1">
+          <End Role="Zaposlenici" Type="Self.Zaposlenici" Multiplicity="1" />
+          <End Role="Dijagnoze" Type="Self.Dijagnoze" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zaposlenici">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Dijagnoze">
+              <PropertyRef Name="ZaposleniciId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Narudžbe__Pacije__6E01572D">
+          <End Role="Pacijenti" Type="Self.Pacijenti" Multiplicity="1" />
+          <End Role="Narudžbe" Type="Self.Narudžbe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pacijenti">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Narudžbe">
+              <PropertyRef Name="PacijentiId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Narudžbe__Zaposl__6D0D32F4">
+          <End Role="Zaposlenici" Type="Self.Zaposlenici" Multiplicity="1" />
+          <End Role="Narudžbe" Type="Self.Narudžbe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zaposlenici">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Narudžbe">
+              <PropertyRef Name="ZaposleniciId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Narudžben__Narud__797309D9">
+          <End Role="Narudžbenice" Type="Self.Narudžbenice" Multiplicity="1" />
+          <End Role="NarudžbenicaStavke" Type="Self.NarudžbenicaStavke" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Narudžbenice">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NarudžbenicaStavke">
+              <PropertyRef Name="NarudžbeniceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Narudžben__Poslo__75A278F5">
+          <End Role="PoslovniPartneri" Type="Self.PoslovniPartneri" Multiplicity="1" />
+          <End Role="Narudžbenice" Type="Self.Narudžbenice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PoslovniPartneri">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Narudžbenice">
+              <PropertyRef Name="PoslovniPartneriId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Narudžben__Proiz__7A672E12">
+          <End Role="Proizvodi" Type="Self.Proizvodi" Multiplicity="1" />
+          <End Role="NarudžbenicaStavke" Type="Self.NarudžbenicaStavke" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proizvodi">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NarudžbenicaStavke">
+              <PropertyRef Name="ProizvodiId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Narudžben__Zapos__76969D2E">
+          <End Role="Zaposlenici" Type="Self.Zaposlenici" Multiplicity="1" />
+          <End Role="Narudžbenice" Type="Self.Narudžbenice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zaposlenici">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Narudžbenice">
+              <PropertyRef Name="ZaposleniciId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Pacijenti__Zapos__6A30C649">
+          <End Role="Zaposlenici" Type="Self.Zaposlenici" Multiplicity="1" />
+          <End Role="Pacijenti" Type="Self.Pacijenti" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zaposlenici">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Pacijenti">
+              <PropertyRef Name="ZaposleniciId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Proizvodi__TipPr__70DDC3D8">
+          <End Role="TipProizvoda" Type="Self.TipProizvoda" Multiplicity="1" />
+          <End Role="Proizvodi" Type="Self.Proizvodi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipProizvoda">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Proizvodi">
+              <PropertyRef Name="TipProizvodaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Racuni__Pacijent__1332DBDC">
+          <End Role="Pacijenti" Type="Self.Pacijenti" Multiplicity="1" />
+          <End Role="Racuni" Type="Self.Racuni" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pacijenti">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Racuni">
+              <PropertyRef Name="PacijentiId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Racuni__Zaposlen__123EB7A3">
+          <End Role="Zaposlenici" Type="Self.Zaposlenici" Multiplicity="1" />
+          <End Role="Racuni" Type="Self.Racuni" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zaposlenici">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Racuni">
+              <PropertyRef Name="ZaposleniciId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Recepti__Pacijen__0E6E26BF">
+          <End Role="Pacijenti" Type="Self.Pacijenti" Multiplicity="1" />
+          <End Role="Recepti" Type="Self.Recepti" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pacijenti">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Recepti">
+              <PropertyRef Name="PacijentiId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Recepti__Proizvo__0F624AF8">
+          <End Role="Proizvodi" Type="Self.Proizvodi" Multiplicity="1" />
+          <End Role="Recepti" Type="Self.Recepti" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proizvodi">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Recepti">
+              <PropertyRef Name="ProizvodiId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Recepti__Zaposle__0D7A0286">
+          <End Role="Zaposlenici" Type="Self.Zaposlenici" Multiplicity="1" />
+          <End Role="Recepti" Type="Self.Recepti" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zaposlenici">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Recepti">
+              <PropertyRef Name="ZaposleniciId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StavkeRac__Proiz__17036CC0">
+          <End Role="Proizvodi" Type="Self.Proizvodi" Multiplicity="0..1" />
+          <End Role="StavkeRacuna" Type="Self.StavkeRacuna" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proizvodi">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StavkeRacuna">
+              <PropertyRef Name="ProizvodiId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StavkeRac__Račun__160F4887">
+          <End Role="Racuni" Type="Self.Racuni" Multiplicity="0..1" />
+          <End Role="StavkeRacuna" Type="Self.StavkeRacuna" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Racuni">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StavkeRacuna">
+              <PropertyRef Name="RačuniId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Terapije__Dijagn__04E4BC85">
+          <End Role="Dijagnoze" Type="Self.Dijagnoze" Multiplicity="1" />
+          <End Role="Terapije" Type="Self.Terapije" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dijagnoze">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Terapije">
+              <PropertyRef Name="DijagnozeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Terapije__Proizv__03F0984C">
+          <End Role="Proizvodi" Type="Self.Proizvodi" Multiplicity="1" />
+          <End Role="Terapije" Type="Self.Terapije" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proizvodi">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Terapije">
+              <PropertyRef Name="ProizvodiId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Zaposleni__Radno__6754599E">
+          <End Role="RadnoMjesto" Type="Self.RadnoMjesto" Multiplicity="1" />
+          <End Role="Zaposlenici" Type="Self.Zaposlenici" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RadnoMjesto">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Zaposlenici">
+              <PropertyRef Name="RadnoMjestoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Zaposleni__TipZa__66603565">
+          <End Role="TipZaposlenika" Type="Self.TipZaposlenika" Multiplicity="1" />
+          <End Role="Zaposlenici" Type="Self.Zaposlenici" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipZaposlenika">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Zaposlenici">
+              <PropertyRef Name="TipZaposlenikaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DBModelStoreContainer">
+          <EntitySet Name="Bolesti" EntityType="Self.Bolesti" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Dijagnoze" EntityType="Self.Dijagnoze" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Narudžbe" EntityType="Self.Narudžbe" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NarudžbenicaStavke" EntityType="Self.NarudžbenicaStavke" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Narudžbenice" EntityType="Self.Narudžbenice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pacijenti" EntityType="Self.Pacijenti" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PoslovniPartneri" EntityType="Self.PoslovniPartneri" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Proizvodi" EntityType="Self.Proizvodi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Racuni" EntityType="Self.Racuni" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RadnoMjesto" EntityType="Self.RadnoMjesto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Recepti" EntityType="Self.Recepti" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StavkeRacuna" EntityType="Self.StavkeRacuna" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Terapije" EntityType="Self.Terapije" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipProizvoda" EntityType="Self.TipProizvoda" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipZaposlenika" EntityType="Self.TipZaposlenika" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Zaposlenici" EntityType="Self.Zaposlenici" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Dijagnoze__Boles__00200768" Association="Self.FK__Dijagnoze__Boles__00200768">
+            <End Role="Bolesti" EntitySet="Bolesti" />
+            <End Role="Dijagnoze" EntitySet="Dijagnoze" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Dijagnoze__Pacij__7F2BE32F" Association="Self.FK__Dijagnoze__Pacij__7F2BE32F">
+            <End Role="Pacijenti" EntitySet="Pacijenti" />
+            <End Role="Dijagnoze" EntitySet="Dijagnoze" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Dijagnoze__Zapos__01142BA1" Association="Self.FK__Dijagnoze__Zapos__01142BA1">
+            <End Role="Zaposlenici" EntitySet="Zaposlenici" />
+            <End Role="Dijagnoze" EntitySet="Dijagnoze" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Narudžbe__Pacije__6E01572D" Association="Self.FK__Narudžbe__Pacije__6E01572D">
+            <End Role="Pacijenti" EntitySet="Pacijenti" />
+            <End Role="Narudžbe" EntitySet="Narudžbe" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Narudžbe__Zaposl__6D0D32F4" Association="Self.FK__Narudžbe__Zaposl__6D0D32F4">
+            <End Role="Zaposlenici" EntitySet="Zaposlenici" />
+            <End Role="Narudžbe" EntitySet="Narudžbe" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Narudžben__Narud__797309D9" Association="Self.FK__Narudžben__Narud__797309D9">
+            <End Role="Narudžbenice" EntitySet="Narudžbenice" />
+            <End Role="NarudžbenicaStavke" EntitySet="NarudžbenicaStavke" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Narudžben__Poslo__75A278F5" Association="Self.FK__Narudžben__Poslo__75A278F5">
+            <End Role="PoslovniPartneri" EntitySet="PoslovniPartneri" />
+            <End Role="Narudžbenice" EntitySet="Narudžbenice" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Narudžben__Proiz__7A672E12" Association="Self.FK__Narudžben__Proiz__7A672E12">
+            <End Role="Proizvodi" EntitySet="Proizvodi" />
+            <End Role="NarudžbenicaStavke" EntitySet="NarudžbenicaStavke" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Narudžben__Zapos__76969D2E" Association="Self.FK__Narudžben__Zapos__76969D2E">
+            <End Role="Zaposlenici" EntitySet="Zaposlenici" />
+            <End Role="Narudžbenice" EntitySet="Narudžbenice" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Pacijenti__Zapos__6A30C649" Association="Self.FK__Pacijenti__Zapos__6A30C649">
+            <End Role="Zaposlenici" EntitySet="Zaposlenici" />
+            <End Role="Pacijenti" EntitySet="Pacijenti" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Proizvodi__TipPr__70DDC3D8" Association="Self.FK__Proizvodi__TipPr__70DDC3D8">
+            <End Role="TipProizvoda" EntitySet="TipProizvoda" />
+            <End Role="Proizvodi" EntitySet="Proizvodi" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Racuni__Pacijent__1332DBDC" Association="Self.FK__Racuni__Pacijent__1332DBDC">
+            <End Role="Pacijenti" EntitySet="Pacijenti" />
+            <End Role="Racuni" EntitySet="Racuni" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Racuni__Zaposlen__123EB7A3" Association="Self.FK__Racuni__Zaposlen__123EB7A3">
+            <End Role="Zaposlenici" EntitySet="Zaposlenici" />
+            <End Role="Racuni" EntitySet="Racuni" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Recepti__Pacijen__0E6E26BF" Association="Self.FK__Recepti__Pacijen__0E6E26BF">
+            <End Role="Pacijenti" EntitySet="Pacijenti" />
+            <End Role="Recepti" EntitySet="Recepti" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Recepti__Proizvo__0F624AF8" Association="Self.FK__Recepti__Proizvo__0F624AF8">
+            <End Role="Proizvodi" EntitySet="Proizvodi" />
+            <End Role="Recepti" EntitySet="Recepti" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Recepti__Zaposle__0D7A0286" Association="Self.FK__Recepti__Zaposle__0D7A0286">
+            <End Role="Zaposlenici" EntitySet="Zaposlenici" />
+            <End Role="Recepti" EntitySet="Recepti" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StavkeRac__Proiz__17036CC0" Association="Self.FK__StavkeRac__Proiz__17036CC0">
+            <End Role="Proizvodi" EntitySet="Proizvodi" />
+            <End Role="StavkeRacuna" EntitySet="StavkeRacuna" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StavkeRac__Račun__160F4887" Association="Self.FK__StavkeRac__Račun__160F4887">
+            <End Role="Racuni" EntitySet="Racuni" />
+            <End Role="StavkeRacuna" EntitySet="StavkeRacuna" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Terapije__Dijagn__04E4BC85" Association="Self.FK__Terapije__Dijagn__04E4BC85">
+            <End Role="Dijagnoze" EntitySet="Dijagnoze" />
+            <End Role="Terapije" EntitySet="Terapije" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Terapije__Proizv__03F0984C" Association="Self.FK__Terapije__Proizv__03F0984C">
+            <End Role="Proizvodi" EntitySet="Proizvodi" />
+            <End Role="Terapije" EntitySet="Terapije" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Zaposleni__Radno__6754599E" Association="Self.FK__Zaposleni__Radno__6754599E">
+            <End Role="RadnoMjesto" EntitySet="RadnoMjesto" />
+            <End Role="Zaposlenici" EntitySet="Zaposlenici" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Zaposleni__TipZa__66603565" Association="Self.FK__Zaposleni__TipZa__66603565">
+            <End Role="TipZaposlenika" EntitySet="TipZaposlenika" />
+            <End Role="Zaposlenici" EntitySet="Zaposlenici" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Bolesti">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Naziv" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Dijagnoze" Relationship="Self.FK__Dijagnoze__Boles__00200768" FromRole="Bolesti" ToRole="Dijagnoze" />
+        </EntityType>
+        <EntityType Name="Dijagnoze">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PacijentiId" Type="Int32" Nullable="false" />
+          <Property Name="BolestiId" Type="Int32" Nullable="false" />
+          <Property Name="ZaposleniciId" Type="Int32" Nullable="false" />
+          <Property Name="Napomena" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Bolesti" Relationship="Self.FK__Dijagnoze__Boles__00200768" FromRole="Dijagnoze" ToRole="Bolesti" />
+          <NavigationProperty Name="Pacijenti" Relationship="Self.FK__Dijagnoze__Pacij__7F2BE32F" FromRole="Dijagnoze" ToRole="Pacijenti" />
+          <NavigationProperty Name="Zaposlenici" Relationship="Self.FK__Dijagnoze__Zapos__01142BA1" FromRole="Dijagnoze" ToRole="Zaposlenici" />
+          <NavigationProperty Name="Terapije" Relationship="Self.FK__Terapije__Dijagn__04E4BC85" FromRole="Dijagnoze" ToRole="Terapije" />
+        </EntityType>
+        <EntityType Name="Narudžbe">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Datum" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ZaposleniciId" Type="Int32" Nullable="false" />
+          <Property Name="PacijentiId" Type="Int32" Nullable="false" />
+          <Property Name="Napomena" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Pacijenti" Relationship="Self.FK__Narudžbe__Pacije__6E01572D" FromRole="Narudžbe" ToRole="Pacijenti" />
+          <NavigationProperty Name="Zaposlenici" Relationship="Self.FK__Narudžbe__Zaposl__6D0D32F4" FromRole="Narudžbe" ToRole="Zaposlenici" />
+        </EntityType>
+        <EntityType Name="NarudžbenicaStavke">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NarudžbeniceId" Type="Int32" Nullable="false" />
+          <Property Name="ProizvodiId" Type="Int32" Nullable="false" />
+          <Property Name="Količina" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Narudžbenice" Relationship="Self.FK__Narudžben__Narud__797309D9" FromRole="NarudžbenicaStavke" ToRole="Narudžbenice" />
+          <NavigationProperty Name="Proizvodi" Relationship="Self.FK__Narudžben__Proiz__7A672E12" FromRole="NarudžbenicaStavke" ToRole="Proizvodi" />
+        </EntityType>
+        <EntityType Name="Narudžbenice">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Datum" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="PoslovniPartneriId" Type="Int32" Nullable="false" />
+          <Property Name="ZaposleniciId" Type="Int32" Nullable="false" />
+          <Property Name="Napomena" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="NarudžbenicaStavke" Relationship="Self.FK__Narudžben__Narud__797309D9" FromRole="Narudžbenice" ToRole="NarudžbenicaStavke" />
+          <NavigationProperty Name="PoslovniPartneri" Relationship="Self.FK__Narudžben__Poslo__75A278F5" FromRole="Narudžbenice" ToRole="PoslovniPartneri" />
+          <NavigationProperty Name="Zaposlenici" Relationship="Self.FK__Narudžben__Zapos__76969D2E" FromRole="Narudžbenice" ToRole="Zaposlenici" />
+        </EntityType>
+        <EntityType Name="Pacijenti">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Oib" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Ime" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Prezime" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DatumRođenja" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Adresa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Kontakt" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Spol" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="ZaposleniciId" Type="Int32" Nullable="false" />
+          <Property Name="ZaposleniciIdStomatolog" Type="Int32" />
+          <NavigationProperty Name="Dijagnoze" Relationship="Self.FK__Dijagnoze__Pacij__7F2BE32F" FromRole="Pacijenti" ToRole="Dijagnoze" />
+          <NavigationProperty Name="Narudžbe" Relationship="Self.FK__Narudžbe__Pacije__6E01572D" FromRole="Pacijenti" ToRole="Narudžbe" />
+          <NavigationProperty Name="Zaposlenici" Relationship="Self.FK__Pacijenti__Zapos__6A30C649" FromRole="Pacijenti" ToRole="Zaposlenici" />
+          <NavigationProperty Name="Racuni" Relationship="Self.FK__Racuni__Pacijent__1332DBDC" FromRole="Pacijenti" ToRole="Racuni" />
+          <NavigationProperty Name="Recepti" Relationship="Self.FK__Recepti__Pacijen__0E6E26BF" FromRole="Pacijenti" ToRole="Recepti" />
+        </EntityType>
+        <EntityType Name="PoslovniPartneri">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Oib" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Naziv" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Adresa" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Kontakt" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Narudžbenice" Relationship="Self.FK__Narudžben__Poslo__75A278F5" FromRole="PoslovniPartneri" ToRole="Narudžbenice" />
+        </EntityType>
+        <EntityType Name="Proizvodi">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Naziv" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TipProizvodaId" Type="Int32" Nullable="false" />
+          <Property Name="Cijena" Type="Decimal" Precision="15" Scale="2" />
+          <NavigationProperty Name="NarudžbenicaStavke" Relationship="Self.FK__Narudžben__Proiz__7A672E12" FromRole="Proizvodi" ToRole="NarudžbenicaStavke" />
+          <NavigationProperty Name="TipProizvoda" Relationship="Self.FK__Proizvodi__TipPr__70DDC3D8" FromRole="Proizvodi" ToRole="TipProizvoda" />
+          <NavigationProperty Name="Recepti" Relationship="Self.FK__Recepti__Proizvo__0F624AF8" FromRole="Proizvodi" ToRole="Recepti" />
+          <NavigationProperty Name="StavkeRacuna" Relationship="Self.FK__StavkeRac__Proiz__17036CC0" FromRole="Proizvodi" ToRole="StavkeRacuna" />
+          <NavigationProperty Name="Terapije" Relationship="Self.FK__Terapije__Proizv__03F0984C" FromRole="Proizvodi" ToRole="Terapije" />
+        </EntityType>
+        <EntityType Name="Racuni">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Datum" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="PacijentiId" Type="Int32" Nullable="false" />
+          <Property Name="ZaposleniciId" Type="Int32" Nullable="false" />
+          <Property Name="Iznos" Type="Decimal" Precision="15" Scale="2" Nullable="false" />
+          <NavigationProperty Name="Pacijenti" Relationship="Self.FK__Racuni__Pacijent__1332DBDC" FromRole="Racuni" ToRole="Pacijenti" />
+          <NavigationProperty Name="Zaposlenici" Relationship="Self.FK__Racuni__Zaposlen__123EB7A3" FromRole="Racuni" ToRole="Zaposlenici" />
+          <NavigationProperty Name="StavkeRacuna" Relationship="Self.FK__StavkeRac__Račun__160F4887" FromRole="Racuni" ToRole="StavkeRacuna" />
+        </EntityType>
+        <EntityType Name="RadnoMjesto">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Naziv" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Zaposlenici" Relationship="Self.FK__Zaposleni__Radno__6754599E" FromRole="RadnoMjesto" ToRole="Zaposlenici" />
+        </EntityType>
+        <EntityType Name="Recepti">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Šifra" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ZaposleniciId" Type="Int32" Nullable="false" />
+          <Property Name="PacijentiId" Type="Int32" Nullable="false" />
+          <Property Name="ProizvodiId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Pacijenti" Relationship="Self.FK__Recepti__Pacijen__0E6E26BF" FromRole="Recepti" ToRole="Pacijenti" />
+          <NavigationProperty Name="Proizvodi" Relationship="Self.FK__Recepti__Proizvo__0F624AF8" FromRole="Recepti" ToRole="Proizvodi" />
+          <NavigationProperty Name="Zaposlenici" Relationship="Self.FK__Recepti__Zaposle__0D7A0286" FromRole="Recepti" ToRole="Zaposlenici" />
+        </EntityType>
+        <EntityType Name="StavkeRacuna">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RačuniId" Type="Int32" />
+          <Property Name="ProizvodiId" Type="Int32" />
+          <Property Name="Količina" Type="Int32" />
+          <NavigationProperty Name="Proizvodi" Relationship="Self.FK__StavkeRac__Proiz__17036CC0" FromRole="StavkeRacuna" ToRole="Proizvodi" />
+          <NavigationProperty Name="Racuni" Relationship="Self.FK__StavkeRac__Račun__160F4887" FromRole="StavkeRacuna" ToRole="Racuni" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Terapije">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProizvodiId" Type="Int32" Nullable="false" />
+          <Property Name="DijagnozeId" Type="Int32" Nullable="false" />
+          <Property Name="Preporuka" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Dijagnoze" Relationship="Self.FK__Terapije__Dijagn__04E4BC85" FromRole="Terapije" ToRole="Dijagnoze" />
+          <NavigationProperty Name="Proizvodi" Relationship="Self.FK__Terapije__Proizv__03F0984C" FromRole="Terapije" ToRole="Proizvodi" />
+        </EntityType>
+        <EntityType Name="TipProizvoda">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Naziv" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Proizvodi" Relationship="Self.FK__Proizvodi__TipPr__70DDC3D8" FromRole="TipProizvoda" ToRole="Proizvodi" />
+        </EntityType>
+        <EntityType Name="TipZaposlenika">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Naziv" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Zaposlenici" Relationship="Self.FK__Zaposleni__TipZa__66603565" FromRole="TipZaposlenika" ToRole="Zaposlenici" />
+        </EntityType>
+        <EntityType Name="Zaposlenici">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Oib" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Ime" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Prezime" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DatumRođenja" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Adresa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Kontakt" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Spol" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="KorisnickoIme" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Lozinka" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TipZaposlenikaId" Type="Int32" Nullable="false" />
+          <Property Name="RadnoMjestoId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Dijagnoze" Relationship="Self.FK__Dijagnoze__Zapos__01142BA1" FromRole="Zaposlenici" ToRole="Dijagnoze" />
+          <NavigationProperty Name="Narudžbe" Relationship="Self.FK__Narudžbe__Zaposl__6D0D32F4" FromRole="Zaposlenici" ToRole="Narudžbe" />
+          <NavigationProperty Name="Narudžbenice" Relationship="Self.FK__Narudžben__Zapos__76969D2E" FromRole="Zaposlenici" ToRole="Narudžbenice" />
+          <NavigationProperty Name="Pacijenti" Relationship="Self.FK__Pacijenti__Zapos__6A30C649" FromRole="Zaposlenici" ToRole="Pacijenti" />
+          <NavigationProperty Name="Racuni" Relationship="Self.FK__Racuni__Zaposlen__123EB7A3" FromRole="Zaposlenici" ToRole="Racuni" />
+          <NavigationProperty Name="RadnoMjesto" Relationship="Self.FK__Zaposleni__Radno__6754599E" FromRole="Zaposlenici" ToRole="RadnoMjesto" />
+          <NavigationProperty Name="Recepti" Relationship="Self.FK__Recepti__Zaposle__0D7A0286" FromRole="Zaposlenici" ToRole="Recepti" />
+          <NavigationProperty Name="TipZaposlenika" Relationship="Self.FK__Zaposleni__TipZa__66603565" FromRole="Zaposlenici" ToRole="TipZaposlenika" />
+        </EntityType>
+        <Association Name="FK__Dijagnoze__Boles__00200768">
+          <End Role="Bolesti" Type="Self.Bolesti" Multiplicity="1" />
+          <End Role="Dijagnoze" Type="Self.Dijagnoze" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bolesti">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Dijagnoze">
+              <PropertyRef Name="BolestiId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Dijagnoze__Pacij__7F2BE32F">
+          <End Role="Pacijenti" Type="Self.Pacijenti" Multiplicity="1" />
+          <End Role="Dijagnoze" Type="Self.Dijagnoze" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pacijenti">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Dijagnoze">
+              <PropertyRef Name="PacijentiId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Dijagnoze__Zapos__01142BA1">
+          <End Role="Zaposlenici" Type="Self.Zaposlenici" Multiplicity="1" />
+          <End Role="Dijagnoze" Type="Self.Dijagnoze" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zaposlenici">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Dijagnoze">
+              <PropertyRef Name="ZaposleniciId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Terapije__Dijagn__04E4BC85">
+          <End Role="Dijagnoze" Type="Self.Dijagnoze" Multiplicity="1" />
+          <End Role="Terapije" Type="Self.Terapije" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dijagnoze">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Terapije">
+              <PropertyRef Name="DijagnozeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Narudžbe__Pacije__6E01572D">
+          <End Role="Pacijenti" Type="Self.Pacijenti" Multiplicity="1" />
+          <End Role="Narudžbe" Type="Self.Narudžbe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pacijenti">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Narudžbe">
+              <PropertyRef Name="PacijentiId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Narudžbe__Zaposl__6D0D32F4">
+          <End Role="Zaposlenici" Type="Self.Zaposlenici" Multiplicity="1" />
+          <End Role="Narudžbe" Type="Self.Narudžbe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zaposlenici">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Narudžbe">
+              <PropertyRef Name="ZaposleniciId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Narudžben__Narud__797309D9">
+          <End Role="Narudžbenice" Type="Self.Narudžbenice" Multiplicity="1" />
+          <End Role="NarudžbenicaStavke" Type="Self.NarudžbenicaStavke" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Narudžbenice">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NarudžbenicaStavke">
+              <PropertyRef Name="NarudžbeniceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Narudžben__Proiz__7A672E12">
+          <End Role="Proizvodi" Type="Self.Proizvodi" Multiplicity="1" />
+          <End Role="NarudžbenicaStavke" Type="Self.NarudžbenicaStavke" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proizvodi">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NarudžbenicaStavke">
+              <PropertyRef Name="ProizvodiId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Narudžben__Poslo__75A278F5">
+          <End Role="PoslovniPartneri" Type="Self.PoslovniPartneri" Multiplicity="1" />
+          <End Role="Narudžbenice" Type="Self.Narudžbenice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PoslovniPartneri">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Narudžbenice">
+              <PropertyRef Name="PoslovniPartneriId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Narudžben__Zapos__76969D2E">
+          <End Role="Zaposlenici" Type="Self.Zaposlenici" Multiplicity="1" />
+          <End Role="Narudžbenice" Type="Self.Narudžbenice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zaposlenici">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Narudžbenice">
+              <PropertyRef Name="ZaposleniciId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Pacijenti__Zapos__6A30C649">
+          <End Role="Zaposlenici" Type="Self.Zaposlenici" Multiplicity="1" />
+          <End Role="Pacijenti" Type="Self.Pacijenti" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zaposlenici">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Pacijenti">
+              <PropertyRef Name="ZaposleniciId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Racuni__Pacijent__1332DBDC">
+          <End Role="Pacijenti" Type="Self.Pacijenti" Multiplicity="1" />
+          <End Role="Racuni" Type="Self.Racuni" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pacijenti">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Racuni">
+              <PropertyRef Name="PacijentiId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Recepti__Pacijen__0E6E26BF">
+          <End Role="Pacijenti" Type="Self.Pacijenti" Multiplicity="1" />
+          <End Role="Recepti" Type="Self.Recepti" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pacijenti">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Recepti">
+              <PropertyRef Name="PacijentiId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Proizvodi__TipPr__70DDC3D8">
+          <End Role="TipProizvoda" Type="Self.TipProizvoda" Multiplicity="1" />
+          <End Role="Proizvodi" Type="Self.Proizvodi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipProizvoda">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Proizvodi">
+              <PropertyRef Name="TipProizvodaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Recepti__Proizvo__0F624AF8">
+          <End Role="Proizvodi" Type="Self.Proizvodi" Multiplicity="1" />
+          <End Role="Recepti" Type="Self.Recepti" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proizvodi">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Recepti">
+              <PropertyRef Name="ProizvodiId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StavkeRac__Proiz__17036CC0">
+          <End Role="Proizvodi" Type="Self.Proizvodi" Multiplicity="0..1" />
+          <End Role="StavkeRacuna" Type="Self.StavkeRacuna" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proizvodi">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StavkeRacuna">
+              <PropertyRef Name="ProizvodiId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Terapije__Proizv__03F0984C">
+          <End Role="Proizvodi" Type="Self.Proizvodi" Multiplicity="1" />
+          <End Role="Terapije" Type="Self.Terapije" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proizvodi">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Terapije">
+              <PropertyRef Name="ProizvodiId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Racuni__Zaposlen__123EB7A3">
+          <End Role="Zaposlenici" Type="Self.Zaposlenici" Multiplicity="1" />
+          <End Role="Racuni" Type="Self.Racuni" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zaposlenici">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Racuni">
+              <PropertyRef Name="ZaposleniciId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StavkeRac__Račun__160F4887">
+          <End Role="Racuni" Type="Self.Racuni" Multiplicity="0..1" />
+          <End Role="StavkeRacuna" Type="Self.StavkeRacuna" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Racuni">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StavkeRacuna">
+              <PropertyRef Name="RačuniId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Zaposleni__Radno__6754599E">
+          <End Role="RadnoMjesto" Type="Self.RadnoMjesto" Multiplicity="1" />
+          <End Role="Zaposlenici" Type="Self.Zaposlenici" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RadnoMjesto">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Zaposlenici">
+              <PropertyRef Name="RadnoMjestoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Recepti__Zaposle__0D7A0286">
+          <End Role="Zaposlenici" Type="Self.Zaposlenici" Multiplicity="1" />
+          <End Role="Recepti" Type="Self.Recepti" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zaposlenici">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Recepti">
+              <PropertyRef Name="ZaposleniciId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Zaposleni__TipZa__66603565">
+          <End Role="TipZaposlenika" Type="Self.TipZaposlenika" Multiplicity="1" />
+          <End Role="Zaposlenici" Type="Self.Zaposlenici" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipZaposlenika">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Zaposlenici">
+              <PropertyRef Name="TipZaposlenikaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MedCareEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Bolesti" EntityType="Self.Bolesti" />
+          <EntitySet Name="Dijagnoze" EntityType="Self.Dijagnoze" />
+          <EntitySet Name="Narudžbe" EntityType="Self.Narudžbe" />
+          <EntitySet Name="NarudžbenicaStavke" EntityType="Self.NarudžbenicaStavke" />
+          <EntitySet Name="Narudžbenice" EntityType="Self.Narudžbenice" />
+          <EntitySet Name="Pacijenti" EntityType="Self.Pacijenti" />
+          <EntitySet Name="PoslovniPartneri" EntityType="Self.PoslovniPartneri" />
+          <EntitySet Name="Proizvodi" EntityType="Self.Proizvodi" />
+          <EntitySet Name="Racuni" EntityType="Self.Racuni" />
+          <EntitySet Name="RadnoMjesto" EntityType="Self.RadnoMjesto" />
+          <EntitySet Name="Recepti" EntityType="Self.Recepti" />
+          <EntitySet Name="StavkeRacuna" EntityType="Self.StavkeRacuna" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Terapije" EntityType="Self.Terapije" />
+          <EntitySet Name="TipProizvoda" EntityType="Self.TipProizvoda" />
+          <EntitySet Name="TipZaposlenika" EntityType="Self.TipZaposlenika" />
+          <EntitySet Name="Zaposlenici" EntityType="Self.Zaposlenici" />
+          <AssociationSet Name="FK__Dijagnoze__Boles__00200768" Association="Self.FK__Dijagnoze__Boles__00200768">
+            <End Role="Bolesti" EntitySet="Bolesti" />
+            <End Role="Dijagnoze" EntitySet="Dijagnoze" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Dijagnoze__Pacij__7F2BE32F" Association="Self.FK__Dijagnoze__Pacij__7F2BE32F">
+            <End Role="Pacijenti" EntitySet="Pacijenti" />
+            <End Role="Dijagnoze" EntitySet="Dijagnoze" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Dijagnoze__Zapos__01142BA1" Association="Self.FK__Dijagnoze__Zapos__01142BA1">
+            <End Role="Zaposlenici" EntitySet="Zaposlenici" />
+            <End Role="Dijagnoze" EntitySet="Dijagnoze" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Terapije__Dijagn__04E4BC85" Association="Self.FK__Terapije__Dijagn__04E4BC85">
+            <End Role="Dijagnoze" EntitySet="Dijagnoze" />
+            <End Role="Terapije" EntitySet="Terapije" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Narudžbe__Pacije__6E01572D" Association="Self.FK__Narudžbe__Pacije__6E01572D">
+            <End Role="Pacijenti" EntitySet="Pacijenti" />
+            <End Role="Narudžbe" EntitySet="Narudžbe" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Narudžbe__Zaposl__6D0D32F4" Association="Self.FK__Narudžbe__Zaposl__6D0D32F4">
+            <End Role="Zaposlenici" EntitySet="Zaposlenici" />
+            <End Role="Narudžbe" EntitySet="Narudžbe" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Narudžben__Narud__797309D9" Association="Self.FK__Narudžben__Narud__797309D9">
+            <End Role="Narudžbenice" EntitySet="Narudžbenice" />
+            <End Role="NarudžbenicaStavke" EntitySet="NarudžbenicaStavke" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Narudžben__Proiz__7A672E12" Association="Self.FK__Narudžben__Proiz__7A672E12">
+            <End Role="Proizvodi" EntitySet="Proizvodi" />
+            <End Role="NarudžbenicaStavke" EntitySet="NarudžbenicaStavke" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Narudžben__Poslo__75A278F5" Association="Self.FK__Narudžben__Poslo__75A278F5">
+            <End Role="PoslovniPartneri" EntitySet="PoslovniPartneri" />
+            <End Role="Narudžbenice" EntitySet="Narudžbenice" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Narudžben__Zapos__76969D2E" Association="Self.FK__Narudžben__Zapos__76969D2E">
+            <End Role="Zaposlenici" EntitySet="Zaposlenici" />
+            <End Role="Narudžbenice" EntitySet="Narudžbenice" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Pacijenti__Zapos__6A30C649" Association="Self.FK__Pacijenti__Zapos__6A30C649">
+            <End Role="Zaposlenici" EntitySet="Zaposlenici" />
+            <End Role="Pacijenti" EntitySet="Pacijenti" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Racuni__Pacijent__1332DBDC" Association="Self.FK__Racuni__Pacijent__1332DBDC">
+            <End Role="Pacijenti" EntitySet="Pacijenti" />
+            <End Role="Racuni" EntitySet="Racuni" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Recepti__Pacijen__0E6E26BF" Association="Self.FK__Recepti__Pacijen__0E6E26BF">
+            <End Role="Pacijenti" EntitySet="Pacijenti" />
+            <End Role="Recepti" EntitySet="Recepti" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Proizvodi__TipPr__70DDC3D8" Association="Self.FK__Proizvodi__TipPr__70DDC3D8">
+            <End Role="TipProizvoda" EntitySet="TipProizvoda" />
+            <End Role="Proizvodi" EntitySet="Proizvodi" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Recepti__Proizvo__0F624AF8" Association="Self.FK__Recepti__Proizvo__0F624AF8">
+            <End Role="Proizvodi" EntitySet="Proizvodi" />
+            <End Role="Recepti" EntitySet="Recepti" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StavkeRac__Proiz__17036CC0" Association="Self.FK__StavkeRac__Proiz__17036CC0">
+            <End Role="Proizvodi" EntitySet="Proizvodi" />
+            <End Role="StavkeRacuna" EntitySet="StavkeRacuna" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Terapije__Proizv__03F0984C" Association="Self.FK__Terapije__Proizv__03F0984C">
+            <End Role="Proizvodi" EntitySet="Proizvodi" />
+            <End Role="Terapije" EntitySet="Terapije" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Racuni__Zaposlen__123EB7A3" Association="Self.FK__Racuni__Zaposlen__123EB7A3">
+            <End Role="Zaposlenici" EntitySet="Zaposlenici" />
+            <End Role="Racuni" EntitySet="Racuni" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StavkeRac__Račun__160F4887" Association="Self.FK__StavkeRac__Račun__160F4887">
+            <End Role="Racuni" EntitySet="Racuni" />
+            <End Role="StavkeRacuna" EntitySet="StavkeRacuna" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Zaposleni__Radno__6754599E" Association="Self.FK__Zaposleni__Radno__6754599E">
+            <End Role="RadnoMjesto" EntitySet="RadnoMjesto" />
+            <End Role="Zaposlenici" EntitySet="Zaposlenici" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Recepti__Zaposle__0D7A0286" Association="Self.FK__Recepti__Zaposle__0D7A0286">
+            <End Role="Zaposlenici" EntitySet="Zaposlenici" />
+            <End Role="Recepti" EntitySet="Recepti" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Zaposleni__TipZa__66603565" Association="Self.FK__Zaposleni__TipZa__66603565">
+            <End Role="TipZaposlenika" EntitySet="TipZaposlenika" />
+            <End Role="Zaposlenici" EntitySet="Zaposlenici" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DBModelStoreContainer" CdmEntityContainer="MedCareEntities">
+          <EntitySetMapping Name="Bolesti">
+            <EntityTypeMapping TypeName="DBModel.Bolesti">
+              <MappingFragment StoreEntitySet="Bolesti">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Dijagnoze">
+            <EntityTypeMapping TypeName="DBModel.Dijagnoze">
+              <MappingFragment StoreEntitySet="Dijagnoze">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PacijentiId" ColumnName="PacijentiId" />
+                <ScalarProperty Name="BolestiId" ColumnName="BolestiId" />
+                <ScalarProperty Name="ZaposleniciId" ColumnName="ZaposleniciId" />
+                <ScalarProperty Name="Napomena" ColumnName="Napomena" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Narudžbe">
+            <EntityTypeMapping TypeName="DBModel.Narudžbe">
+              <MappingFragment StoreEntitySet="Narudžbe">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Datum" ColumnName="Datum" />
+                <ScalarProperty Name="ZaposleniciId" ColumnName="ZaposleniciId" />
+                <ScalarProperty Name="PacijentiId" ColumnName="PacijentiId" />
+                <ScalarProperty Name="Napomena" ColumnName="Napomena" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NarudžbenicaStavke">
+            <EntityTypeMapping TypeName="DBModel.NarudžbenicaStavke">
+              <MappingFragment StoreEntitySet="NarudžbenicaStavke">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="NarudžbeniceId" ColumnName="NarudžbeniceId" />
+                <ScalarProperty Name="ProizvodiId" ColumnName="ProizvodiId" />
+                <ScalarProperty Name="Količina" ColumnName="Količina" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Narudžbenice">
+            <EntityTypeMapping TypeName="DBModel.Narudžbenice">
+              <MappingFragment StoreEntitySet="Narudžbenice">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Datum" ColumnName="Datum" />
+                <ScalarProperty Name="PoslovniPartneriId" ColumnName="PoslovniPartneriId" />
+                <ScalarProperty Name="ZaposleniciId" ColumnName="ZaposleniciId" />
+                <ScalarProperty Name="Napomena" ColumnName="Napomena" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pacijenti">
+            <EntityTypeMapping TypeName="DBModel.Pacijenti">
+              <MappingFragment StoreEntitySet="Pacijenti">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Oib" ColumnName="Oib" />
+                <ScalarProperty Name="Ime" ColumnName="Ime" />
+                <ScalarProperty Name="Prezime" ColumnName="Prezime" />
+                <ScalarProperty Name="DatumRođenja" ColumnName="DatumRođenja" />
+                <ScalarProperty Name="Adresa" ColumnName="Adresa" />
+                <ScalarProperty Name="Kontakt" ColumnName="Kontakt" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Spol" ColumnName="Spol" />
+                <ScalarProperty Name="ZaposleniciId" ColumnName="ZaposleniciId" />
+                <ScalarProperty Name="ZaposleniciIdStomatolog" ColumnName="ZaposleniciIdStomatolog" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PoslovniPartneri">
+            <EntityTypeMapping TypeName="DBModel.PoslovniPartneri">
+              <MappingFragment StoreEntitySet="PoslovniPartneri">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Oib" ColumnName="Oib" />
+                <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+                <ScalarProperty Name="Adresa" ColumnName="Adresa" />
+                <ScalarProperty Name="Kontakt" ColumnName="Kontakt" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Proizvodi">
+            <EntityTypeMapping TypeName="DBModel.Proizvodi">
+              <MappingFragment StoreEntitySet="Proizvodi">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+                <ScalarProperty Name="TipProizvodaId" ColumnName="TipProizvodaId" />
+                <ScalarProperty Name="Cijena" ColumnName="Cijena" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Racuni">
+            <EntityTypeMapping TypeName="DBModel.Racuni">
+              <MappingFragment StoreEntitySet="Racuni">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Datum" ColumnName="Datum" />
+                <ScalarProperty Name="PacijentiId" ColumnName="PacijentiId" />
+                <ScalarProperty Name="ZaposleniciId" ColumnName="ZaposleniciId" />
+                <ScalarProperty Name="Iznos" ColumnName="Iznos" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RadnoMjesto">
+            <EntityTypeMapping TypeName="DBModel.RadnoMjesto">
+              <MappingFragment StoreEntitySet="RadnoMjesto">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Recepti">
+            <EntityTypeMapping TypeName="DBModel.Recepti">
+              <MappingFragment StoreEntitySet="Recepti">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Šifra" ColumnName="Šifra" />
+                <ScalarProperty Name="ZaposleniciId" ColumnName="ZaposleniciId" />
+                <ScalarProperty Name="PacijentiId" ColumnName="PacijentiId" />
+                <ScalarProperty Name="ProizvodiId" ColumnName="ProizvodiId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StavkeRacuna">
+            <EntityTypeMapping TypeName="DBModel.StavkeRacuna">
+              <MappingFragment StoreEntitySet="StavkeRacuna">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="RačuniId" ColumnName="RačuniId" />
+                <ScalarProperty Name="ProizvodiId" ColumnName="ProizvodiId" />
+                <ScalarProperty Name="Količina" ColumnName="Količina" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="DBModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Terapije">
+            <EntityTypeMapping TypeName="DBModel.Terapije">
+              <MappingFragment StoreEntitySet="Terapije">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ProizvodiId" ColumnName="ProizvodiId" />
+                <ScalarProperty Name="DijagnozeId" ColumnName="DijagnozeId" />
+                <ScalarProperty Name="Preporuka" ColumnName="Preporuka" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipProizvoda">
+            <EntityTypeMapping TypeName="DBModel.TipProizvoda">
+              <MappingFragment StoreEntitySet="TipProizvoda">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipZaposlenika">
+            <EntityTypeMapping TypeName="DBModel.TipZaposlenika">
+              <MappingFragment StoreEntitySet="TipZaposlenika">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Zaposlenici">
+            <EntityTypeMapping TypeName="DBModel.Zaposlenici">
+              <MappingFragment StoreEntitySet="Zaposlenici">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Oib" ColumnName="Oib" />
+                <ScalarProperty Name="Ime" ColumnName="Ime" />
+                <ScalarProperty Name="Prezime" ColumnName="Prezime" />
+                <ScalarProperty Name="DatumRođenja" ColumnName="DatumRođenja" />
+                <ScalarProperty Name="Adresa" ColumnName="Adresa" />
+                <ScalarProperty Name="Kontakt" ColumnName="Kontakt" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Spol" ColumnName="Spol" />
+                <ScalarProperty Name="KorisnickoIme" ColumnName="KorisnickoIme" />
+                <ScalarProperty Name="Lozinka" ColumnName="Lozinka" />
+                <ScalarProperty Name="TipZaposlenikaId" ColumnName="TipZaposlenikaId" />
+                <ScalarProperty Name="RadnoMjestoId" ColumnName="RadnoMjestoId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

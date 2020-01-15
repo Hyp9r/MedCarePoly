@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f593d3bd62c340cd8b8e855699aba4f8" Name="Diagram1">
+        <EntityTypeShape EntityType="DBModel.Bolesti" Width="1.5" PointX="5.25" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Dijagnoze" Width="1.5" PointX="7.5" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Narudžbe" Width="1.5" PointX="10.5" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.NarudžbenicaStavke" Width="1.5" PointX="7.5" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Narudžbenice" Width="1.5" PointX="5.25" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Pacijenti" Width="1.5" PointX="5.25" PointY="19" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.PoslovniPartneri" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Proizvodi" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Racuni" Width="1.5" PointX="7.5" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.RadnoMjesto" Width="1.5" PointX="0.75" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Recepti" Width="1.5" PointX="7.5" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.StavkeRacuna" Width="1.5" PointX="9.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Terapije" Width="1.5" PointX="9.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.TipProizvoda" Width="1.5" PointX="3" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.TipZaposlenika" Width="1.5" PointX="0.75" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Zaposlenici" Width="1.5" PointX="3" PointY="8.625" IsExpanded="true" />
+        <AssociationConnector Association="DBModel.FK__Dijagnoze__Boles__00200768" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK__Dijagnoze__Pacij__7F2BE32F" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK__Dijagnoze__Zapos__01142BA1" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK__Terapije__Dijagn__04E4BC85" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK__Narudžbe__Pacije__6E01572D" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK__Narudžbe__Zaposl__6D0D32F4" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK__Narudžben__Narud__797309D9" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK__Narudžben__Proiz__7A672E12" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK__Narudžben__Poslo__75A278F5" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK__Narudžben__Zapos__76969D2E" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK__Pacijenti__Zapos__6A30C649" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK__Racuni__Pacijent__1332DBDC" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK__Recepti__Pacijen__0E6E26BF" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK__Proizvodi__TipPr__70DDC3D8" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK__Recepti__Proizvo__0F624AF8" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK__StavkeRac__Proiz__17036CC0" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK__Terapije__Proizv__03F0984C" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK__Racuni__Zaposlen__123EB7A3" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK__StavkeRac__Račun__160F4887" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK__Zaposleni__Radno__6754599E" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK__Recepti__Zaposle__0D7A0286" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK__Zaposleni__TipZa__66603565" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

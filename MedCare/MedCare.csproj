@@ -1,0 +1,366 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{43D7E705-0BB0-42B7-8C75-324DFBCD0B2B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>MedCare</RootNamespace>
+    <AssemblyName>MedCare</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Bolesti.cs">
+      <DependentUpon>MedCareModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dijagnoze.cs">
+      <DependentUpon>MedCareModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDodajNarudzbu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDodajNarudzbu.Designer.cs">
+      <DependentUpon>FrmDodajNarudzbu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDodajPromijeniPacijenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDodajPromijeniPacijenta.Designer.cs">
+      <DependentUpon>FrmDodajPromijeniPacijenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDodajPromijeniZaposlenika.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDodajPromijeniZaposlenika.Designer.cs">
+      <DependentUpon>FrmDodajPromijeniZaposlenika.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDodajRacun.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDodajRacun.Designer.cs">
+      <DependentUpon>FrmDodajRacun.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmGeneniraniRacun.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGeneniraniRacun.Designer.cs">
+      <DependentUpon>FrmGeneniraniRacun.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMain.Designer.cs">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPrijava.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPrijava.Designer.cs">
+      <DependentUpon>FrmPrijava.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MedCareModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MedCareModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MedCareModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MedCareModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MedCareModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MedCareModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="NarudzbaKartica.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NarudzbaKartica.Designer.cs">
+      <DependentUpon>NarudzbaKartica.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Narudžbe.cs">
+      <DependentUpon>MedCareModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NarudžbenicaStavke.cs">
+      <DependentUpon>MedCareModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Narudžbenice.cs">
+      <DependentUpon>MedCareModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pacijenti.cs">
+      <DependentUpon>MedCareModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PoslovniPartneri.cs">
+      <DependentUpon>MedCareModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Prijava.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Proizvodi.cs">
+      <DependentUpon>MedCareModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Racuni.cs">
+      <DependentUpon>MedCareModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RadnoMjesto.cs">
+      <DependentUpon>MedCareModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Recepti.cs">
+      <DependentUpon>MedCareModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="StavkeRacuna.cs">
+      <DependentUpon>MedCareModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>MedCareModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Terapije.cs">
+      <DependentUpon>MedCareModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TipProizvoda.cs">
+      <DependentUpon>MedCareModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TipZaposlenika.cs">
+      <DependentUpon>MedCareModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ucLijecnici.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucLijecnici.Designer.cs">
+      <DependentUpon>ucLijecnici.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucPacijenti.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucPacijenti.Designer.cs">
+      <DependentUpon>ucPacijenti.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucPocetna.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucPocetna.Designer.cs">
+      <DependentUpon>ucPocetna.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UpravljanjeNarudzbama.cs" />
+    <Compile Include="UpravljanjePacijentima.cs" />
+    <Compile Include="UpravljanjeRacunima.cs" />
+    <Compile Include="UpravljanjeZaposlenicima.cs" />
+    <Compile Include="Zaposlenici.cs">
+      <DependentUpon>MedCareModel.tt</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="FrmDodajNarudzbu.resx">
+      <DependentUpon>FrmDodajNarudzbu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDodajPromijeniPacijenta.resx">
+      <DependentUpon>FrmDodajPromijeniPacijenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDodajPromijeniZaposlenika.resx">
+      <DependentUpon>FrmDodajPromijeniZaposlenika.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDodajRacun.resx">
+      <DependentUpon>FrmDodajRacun.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmGeneniraniRacun.resx">
+      <DependentUpon>FrmGeneniraniRacun.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMain.resx">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPrijava.resx">
+      <DependentUpon>FrmPrijava.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NarudzbaKartica.resx">
+      <DependentUpon>NarudzbaKartica.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="RacuniReport.rdlc" />
+    <EmbeddedResource Include="ucLijecnici.resx">
+      <DependentUpon>ucLijecnici.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucPacijenti.resx">
+      <DependentUpon>ucPacijenti.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucPocetna.resx">
+      <DependentUpon>ucPocetna.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="MedCareModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MedCareModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="MedCareModel.edmx.diagram">
+      <DependentUpon>MedCareModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\Pacijenti.datasource" />
+    <None Include="Properties\DataSources\Proizvodi.datasource" />
+    <None Include="Properties\DataSources\Racuni.datasource" />
+    <None Include="Properties\DataSources\StavkeRacuna.datasource" />
+    <None Include="Properties\DataSources\Zaposlenici.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-exit-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-doctor-male-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-family-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-application-window-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MedCare_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-combo-chart-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-male-user-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-male-user-96.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-female-profile-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MedCareModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MedCareModel.edmx</DependentUpon>
+      <LastGenOutput>MedCareModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="MedCareModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MedCareModel.edmx</DependentUpon>
+      <LastGenOutput>MedCareModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\icons8-expand-arrow-48.png" />
+    <None Include="Resources\icons8-clear-filters-48.png" />
+    <None Include="Resources\icons8-clear-filters-241.png" />
+    <None Include="Resources\icons8-clear-filters-24.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
